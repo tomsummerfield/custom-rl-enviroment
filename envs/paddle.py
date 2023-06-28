@@ -1,4 +1,5 @@
 import turtle
+import keyboard
 
 # Creating Screen
 screen = turtle.getscreen()
@@ -35,13 +36,29 @@ def paddle_left():
     if x > -225:
         paddle.setx(x-20)    # decrement the x position by 20
 
-# Keyboard Control
 
+def on_press(key):
+    global done
+    
+    if key == 'left':  # check if left arrow key is pressed
+        paddle_left()
+    elif key == 'right':  # check if right arrow key is pressed
+        paddle_right()
+    elif key == 'esc':
+        done = True
 
 done = False
 
 # Display Screen
 while not done:
+   
    screen.update()
-   paddle_left()
+   
+   if keyboard.is_pressed('left'):
+       on_press("left")
+   elif keyboard.is_pressed('right'):
+       on_press("right")
+   elif keyboard.is_pressed('esc'):
+       on_press("esc")
+       
 
