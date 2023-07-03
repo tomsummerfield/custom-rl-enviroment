@@ -1,2 +1,4 @@
-# Custom RL enviroment
+# Custom RL enviroment for connect 4
+
+
 
