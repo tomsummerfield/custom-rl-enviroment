@@ -209,54 +209,27 @@ def check_win_diagnoal_down_right(move, player):
     except:
         return False
 
-# # Testing purposes565
-# def fill_bottom_board():
-#     player = players["R"]
-#     for move in moves:
-#         connect_2d_board[tuple(move)] = player
-        
-# fill_bottom_board()
+done = False
 
-# Testing purposes
-
-# def fill_top_board():
-#     player = players["R"]
+while not done:
     
-#     for x in range(6):
-#         move = [x, 0]
-#         connect_2d_board[tuple(move)] = player
+    # Get move
+    if len(moves) > 0:
+        # Got random move
+        move = random.choice(get_possible_moves())
+    else:
+        break
 
-# fill_top_board()
-
-# def fill_board():
-#     for i in range(len(connect_2d_board)):
-#         connect_2d_board[i] = 1
+    # Made move
+    make_move(move, player)
     
+    # Render board
+    board = env_render()
     
-# fill_board()
-
-# print(connect_2d_board)
-
-
-# while not done:
+    # Checked if player has won
+    has_won(board, move)
     
-#     # Get move
-#     if len(moves) > 0:
-#         # Got random move
-#         move = random.choice(get_possible_moves())
-#     else:
-#         break
-
-#     # Made move
-#     make_move(move, player)
-    
-#     # Render board
-#     board = env_render()
-    
-#     # Checked if player has won
-#     has_won(board, move)
-    
-#     # Switched Player
-#     player = switch_player(player)
+    # Switched Player
+    player = switch_player(player)
 
     
